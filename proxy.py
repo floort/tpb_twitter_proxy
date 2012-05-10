@@ -21,7 +21,6 @@ import urlparse
 import urllib
 import urllib2
 import twitter
-import sys
 import time
 
 ACCOUNT_NAME = "@floorter" # Running as this user
