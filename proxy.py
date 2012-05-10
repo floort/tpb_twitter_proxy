@@ -24,7 +24,7 @@ import twitter
 import sys
 import time
 
-ACCOUNT_NAME = "@floorter" # Twitter user
+ACCOUNT_NAME = "@floorter" # Running as this user
 CONSUMER_KEY = ""
 CONSUMER_SECRET = ""
 ACCESS_TOKEN_KEY = ""
@@ -77,7 +77,7 @@ while True:
     f.close()
     mentions = api.GetMentions(since_id=last)
     for m in mentions:
-        magnet = search(m.text.replace("@zoekpiraat", ""))
+        magnet = search(m.text.replace(ACCOUNT_NAME, ""))
         update_str = "@%s %s" % (m.user.screen_name, shorten_magnet(magnet))
         update = api.PostUpdate(update_str, in_reply_to_status_id=m.id)
         f = open("last.id", "w")
